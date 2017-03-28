@@ -7,17 +7,11 @@ import java.io.*;
 
 public class Main extends Application {
 
-    // Static app to access stop()
-    public static Main app;
     // File name to (de)serialize to and from
     public static final String SERIALIZE_FILE = "stopWatch.ser";
 
     // Controller to serialize
     private CounterController controller;
-
-    public Main() {
-        app = this;
-    }
 
     public void start(Stage stage) {
         CounterModel model;
