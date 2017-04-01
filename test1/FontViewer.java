@@ -85,14 +85,13 @@ public class FontViewer extends Application {
         vBox.setAlignment(Pos.CENTER);
 
         return new HBox(
-                createSizeSlider(),
-                vBox
+            createSizeSlider(),
+            vBox
         );
     }
 
     private Label createFontSizeLabel() {
         Label fontSizeLabel = new Label();
-
         fontSizeLabel.textProperty().bind(Bindings.concat("Font size: ", Bindings.format("%3.0f", fontSizeProperty)));
 
         return fontSizeLabel;
@@ -191,9 +190,7 @@ public class FontViewer extends Application {
     }
 
     private void createBindings() {
-        // Font family
         fontFamilyProperty.addListener((observable, oldValue, newValue) -> updateLabelFont());
-        // Text label
     }
 
     private Font updateLabelFont() {

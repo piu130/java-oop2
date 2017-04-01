@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class CounterController implements Serializable {
+
     private transient AnimationTimer timer;
     private transient BooleanProperty running;
     private CounterModel model;
@@ -61,7 +62,7 @@ public class CounterController implements Serializable {
         }
         // read BooleanProperty
         running = new SimpleBooleanProperty(ois.readBoolean());
-        // init timer
+        // init timer (not serializable)
         initTimer();
         if(running.getValue()) start();
     }
