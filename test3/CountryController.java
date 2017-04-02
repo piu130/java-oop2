@@ -10,9 +10,9 @@ public class CountryController {
 
     public Country getSelectedCountryByIndex(long index) {
         return model.getCountries()
-                .parallelStream()
-                .filter(country -> country.getIndex() == index)
-                .findAny()
-                .orElse(null);
+            .parallelStream()
+            .filter(country -> country.getIndex() == index)
+            .findAny()
+            .orElse(model.getCountries().get(0));
     }
 }
