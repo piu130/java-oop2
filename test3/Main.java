@@ -13,7 +13,7 @@ public class Main extends Application {
         File[] files = convertFiles();
 
         CountriesModel model = new CountriesModel();
-        model.convert(files[0], files[1]);
+        model.convert(new File(files[0] + ".txt"), new File(files[1] + ".txt"));
 
         new CountryView(model, new CountryController(model));
     }

@@ -40,12 +40,9 @@ public class CountriesModel implements ConvertFromFile {
 
     @Override
     public void convert(final File... files) {
-        File populationFile = files[0];
-        File areaFile = files[1];
-
         try (
-                Scanner popIn = new Scanner(new FileInputStream(new File(populationFile + ".txt"))).useDelimiter("\n");
-                Scanner areaIn = new Scanner(new FileInputStream(new File(areaFile + ".txt"))).useDelimiter("\n")
+            Scanner popIn = new Scanner(new FileInputStream(files[0])).useDelimiter("\n");
+            Scanner areaIn = new Scanner(new FileInputStream(files[1])).useDelimiter("\n")
         ) {
             int inc = 1;
             this.addCountry(new Country());
