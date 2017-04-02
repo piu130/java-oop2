@@ -1,7 +1,5 @@
 package test.test3;
 
-import javafx.stage.FileChooser;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

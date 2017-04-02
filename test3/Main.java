@@ -5,7 +5,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class Main extends Application {
 
@@ -19,7 +18,7 @@ public class Main extends Application {
         new CountryView(model, new CountryController(model));
     }
 
-    public File[] convertFiles() {
+    private File[] convertFiles() {
         FileChooser.ExtensionFilter datFilter = new FileChooser.ExtensionFilter("DAT Files", "*.dat");
         FileChooser.ExtensionFilter allFilter = new FileChooser.ExtensionFilter("All Files", "*.*");
 
