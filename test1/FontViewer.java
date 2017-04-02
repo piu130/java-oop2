@@ -31,15 +31,16 @@ public class FontViewer extends Application {
     private static final double SMALL_SIZE = 24.0;
     private static final double MEDIUM_SIZE = 36.0;
     private static final double LARGE_SIZE = 48.0;
-    private static final ArrayList<String> fontFamilies = new ArrayList<String>() {{
-        add("Serif");
-        add("SansSerif");
-        add("Monospaced");
-    }};
     private static final Map<String, Double> sizes = new HashMap<String, Double>() {{
         put("Small", SMALL_SIZE);
         put("Medium", MEDIUM_SIZE);
         put("Large", LARGE_SIZE);
+    }};
+
+    private static final ArrayList<String> fontFamilies = new ArrayList<String>() {{
+        add("Serif");
+        add("SansSerif");
+        add("Monospaced");
     }};
 
     private StringProperty fontFamilyProperty = new SimpleStringProperty("Arial");
