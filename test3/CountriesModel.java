@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CountriesModel implements ConvertFromFile {
+public class CountriesModel implements ConvertFromFiles {
 
     public static final long DEFAULT_COUNTRY = 0;
 
