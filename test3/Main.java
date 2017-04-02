@@ -11,9 +11,26 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        CountriesModel model = FileManager.doFileConversion();
+        File[] files = convertFiles();
+
+        CountriesModel model = new CountriesModel();
+        model.convert(files[0], files[1]);
 
         new CountryView(model, new CountryController(model));
+    }
+
+    public File[] convertFiles() {
+        FileChooser.ExtensionFilter datFilter = new FileChooser.ExtensionFilter("DAT Files", "*.dat");
+        FileChooser.ExtensionFilter allFilter = new FileChooser.ExtensionFilter("All Files", "*.*");
+
+        File popFile = FileManager.askForFile("Choose file with population", datFilter, allFilter);
+        File areaFile = FileManager.askForFile("Choose file with area", datFilter, allFilter);
+
+        if(popFile == null || areaFile == null) System.exit(0);
+
+        FileManager.convertFiles('/', '\t', ".txt", popFile, areaFile);
+
+        return new File[]{ popFile, areaFile };
     }
 
     public static void main(String[] args) {

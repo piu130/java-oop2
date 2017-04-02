@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CountriesModel {
+public class CountriesModel implements ConvertFromFile {
 
     public static final long DEFAULT_COUNTRY = 0;
 
@@ -40,7 +40,11 @@ public class CountriesModel {
         return totalArea == 0 ? 0 : getTotalPopulation() / totalArea;
     }
 
-    public void convertFilesToCountriesModel(File populationFile, File areaFile) {
+    @Override
+    public void convert(File... files) {
+        File populationFile = files[0];
+        File areaFile = files[1];
+
         try (
                 Scanner popIn = new Scanner(new FileInputStream(new File(populationFile + ".txt"))).useDelimiter("\n");
                 Scanner areaIn = new Scanner(new FileInputStream(new File(areaFile + ".txt"))).useDelimiter("\n")
