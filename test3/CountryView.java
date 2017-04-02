@@ -37,6 +37,7 @@ public class CountryView extends Stage {
         ListView<Country> countryListView = new ListView<>();
         countryListView.setItems(FXCollections.observableList(model.getCountries()));
 
+        selectedCountry.addListener((observable, oldValue, newValue) -> countryListView.getSelectionModel().select(selectedCountry.getValue()));
         countryListView.getSelectionModel().selectedItemProperty().addListener(
             (observable, oldValue, newValue) -> selectedCountry.set(countryListView.getSelectionModel().getSelectedItem())
         );
