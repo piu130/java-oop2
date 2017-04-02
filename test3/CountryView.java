@@ -88,7 +88,7 @@ public class CountryView extends Stage {
 
         Label countryInfoPopulationDensityValue = new Label();
         countryInfoPopulationDensityValue.textProperty().bind(
-            Bindings.createStringBinding(() -> Double.toString(selectedCountry.get().getIndex() == CountriesModel.DEFAULT_COUNTRY ?
+            Bindings.createStringBinding(() -> String.format("%.3f", selectedCountry.get().getIndex() == CountriesModel.DEFAULT_COUNTRY ?
                 model.getTotalPopulationDensity() :
                 selectedCountry.get().getPopulationDensity()),
             selectedCountry)
