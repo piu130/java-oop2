@@ -46,7 +46,7 @@ public class CountryView extends Stage {
     }
 
     private Node createInputField() {
-        TextField textField = new TextField();
+        TextField textField = new TextField(String.valueOf(CountriesModel.DEFAULT_COUNTRY));
         textField.setPromptText("Enter #country");
 
         selectedCountry.addListener((observable, oldValue, newValue) -> textField.setText(String.valueOf(selectedCountry.getValue().getIndex())));
