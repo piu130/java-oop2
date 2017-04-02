@@ -6,8 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import java.io.Serializable;
-
 public class LabelStatusView extends Stage {
 
     public LabelStatusView(CounterController controller) {

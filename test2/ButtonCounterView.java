@@ -6,8 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import java.io.Serializable;
-
 public class ButtonCounterView extends Stage {
 
     public ButtonCounterView(CounterController controller) {
