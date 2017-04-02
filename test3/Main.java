@@ -18,6 +18,11 @@ public class Main extends Application {
         new CountryView(model, new CountryController(model));
     }
 
+    /**
+     * Converts population and area file dat to txt. remover '/' and adds \t
+     *
+     * @return [populationFile, areaFile]
+     */
     private File[] convertFiles() {
         FileChooser.ExtensionFilter datFilter = new FileChooser.ExtensionFilter("DAT Files", "*.dat");
         FileChooser.ExtensionFilter allFilter = new FileChooser.ExtensionFilter("All Files", "*.*");
