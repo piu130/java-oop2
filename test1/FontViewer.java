@@ -8,14 +8,9 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
-import javafx.scene.text.Font;
 import javafx.stage.*;
 
 import java.util.ArrayList;
@@ -100,13 +95,13 @@ public class FontViewer extends Application {
     }
 
     private ComboBox<String> createFaceNameCombo() {
-        ComboBox<String> facenameCombo = new ComboBox<>(FXCollections.observableArrayList(fontFamilies));
-        facenameCombo.setEditable(true);
-        facenameCombo.setValue(fontFamilyProperty.getValue());
+        ComboBox<String> faceNameCombo = new ComboBox<>(FXCollections.observableArrayList(fontFamilies));
+        faceNameCombo.setEditable(true);
+        faceNameCombo.setValue(fontFamilyProperty.getValue());
 
-        fontFamilyProperty.bindBidirectional(facenameCombo.valueProperty());
+        fontFamilyProperty.bindBidirectional(faceNameCombo.valueProperty());
 
-        return facenameCombo;
+        return faceNameCombo;
     }
 
     private HBox createStyleCheckBoxes() {
