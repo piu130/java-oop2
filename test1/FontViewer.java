@@ -47,7 +47,8 @@ public class FontViewer extends Application {
     private BooleanProperty fontPostureProperty = new SimpleBooleanProperty(false);
     private DoubleProperty fontSizeProperty = new SimpleDoubleProperty(36.0);
 
-    public void start(Stage stage) {
+    @Override
+    public void start(final Stage stage) {
         BorderPane pane = new BorderPane();
         pane.setCenter(createLabel());
         pane.setBottom(createControlBox());
