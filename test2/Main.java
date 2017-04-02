@@ -13,6 +13,7 @@ public class Main extends Application {
     // Controller to serialize
     private CounterController controller;
 
+    @Override
     public void start(Stage stage) {
         CounterModel model;
 
