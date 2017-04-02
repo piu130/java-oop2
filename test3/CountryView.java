@@ -36,6 +36,7 @@ public class CountryView extends Stage {
     private Node createListView() {
         ListView<Country> countryListView = new ListView<>();
         countryListView.setItems(FXCollections.observableList(model.getCountries()));
+        countryListView.getSelectionModel().select(controller.getSelectedCountryByIndex(CountriesModel.DEFAULT_COUNTRY));
 
         selectedCountry.addListener((observable, oldValue, newValue) -> countryListView.getSelectionModel().select(selectedCountry.getValue()));
         countryListView.getSelectionModel().selectedItemProperty().addListener(
