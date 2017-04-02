@@ -4,7 +4,7 @@ public class CountryController {
 
     private CountriesModel model;
 
-    public CountryController(CountriesModel model) {
+    public CountryController(final CountriesModel model) {
         this.model = model;
     }
 

@@ -21,7 +21,7 @@ public class CountriesModel implements ConvertFromFile {
         return countries;
     }
 
-    public void addCountry(Country country) {
+    public void addCountry(final Country country) {
         countries.add(country);
     }
 
@@ -39,7 +39,7 @@ public class CountriesModel implements ConvertFromFile {
     }
 
     @Override
-    public void convert(File... files) {
+    public void convert(final File... files) {
         File populationFile = files[0];
         File areaFile = files[1];
 

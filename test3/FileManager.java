@@ -7,7 +7,7 @@ import java.io.*;
 
 public class FileManager {
 
-    public static File askForFile(String title, FileChooser.ExtensionFilter... extensionFilters) {
+    public static File askForFile(String title, final FileChooser.ExtensionFilter... extensionFilters) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(title);
         for (FileChooser.ExtensionFilter filter : extensionFilters) {
@@ -17,11 +17,11 @@ public class FileManager {
         return fileChooser.showOpenDialog(new Stage());
     }
 
-    public static void convertFiles(char oldSeparator, char newSeparator, String newFileEnding, File... files) {
+    public static void convertFiles(char oldSeparator, char newSeparator, String newFileEnding, final File... files) {
         for (File file : files) convertFile(oldSeparator, newSeparator, newFileEnding, file);
     }
 
-    public static void convertFile(char oldSeparator, char newSeparator, String newFileEnding, File file) {
+    public static void convertFile(char oldSeparator, char newSeparator, String newFileEnding, final File file) {
         try (
                 DataInputStream dis = new DataInputStream(new FileInputStream(file));
                 PrintWriter pw = new PrintWriter(file.getName() + newFileEnding)

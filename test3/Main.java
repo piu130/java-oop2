@@ -9,7 +9,7 @@ import java.io.*;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(final Stage primaryStage) throws Exception {
         File[] files = convertFiles();
 
         CountriesModel model = new CountriesModel();

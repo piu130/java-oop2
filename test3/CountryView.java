@@ -18,7 +18,7 @@ public class CountryView extends Stage {
     private CountriesModel model;
     private ObjectProperty<Country> selectedCountry;
 
-    public CountryView(CountriesModel model, CountryController controller) {
+    public CountryView(final CountriesModel model, final CountryController controller) {
         this.model = model;
         this.controller = controller;
         this.selectedCountry = new SimpleObjectProperty<>(controller.getSelectedCountryByIndex(CountriesModel.DEFAULT_COUNTRY));
