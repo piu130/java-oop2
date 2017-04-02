@@ -20,7 +20,6 @@ public class Main extends Application {
 
     /**
      * Converts population and area file dat to txt. remover '/' and adds \t
-     *
      * @return [populationFile, areaFile]
      */
     private File[] convertFiles() {

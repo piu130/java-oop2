@@ -9,7 +9,6 @@ public class FileManager {
 
     /**
      * Ask for a file with the given extension filter.
-     *
      * @param title FileChooser title
      * @param extensionFilters ExtensionFilter to filter files
      * @return File chosen
