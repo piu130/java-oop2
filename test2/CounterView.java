@@ -14,7 +14,7 @@ public class CounterView extends Stage implements Observer {
     private CounterModel model;
     private Label label;
 
-    public CounterView(CounterModel model, CounterController controller) {
+    public CounterView(final CounterModel model, final CounterController controller) {
         this.model = model;
 
         Button startButton = new Button("Start");
@@ -45,7 +45,7 @@ public class CounterView extends Stage implements Observer {
         this.show();
     }
 
-    public void update(Observable obs, Object args) {
+    public void update(final Observable obs, Object args) {
         if(obs == model) setTime(model.getValue());
     }
 

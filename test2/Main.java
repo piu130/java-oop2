@@ -14,7 +14,7 @@ public class Main extends Application {
     private CounterController controller;
 
     @Override
-    public void start(Stage stage) {
+    public void start(final Stage stage) {
         CounterModel model;
 
         // Deserialize controller with model if available else create new instances

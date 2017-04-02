@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class ButtonCounterView extends Stage {
 
-    public ButtonCounterView(CounterController controller) {
+    public ButtonCounterView(final CounterController controller) {
 
         Button startButton = new Button("Start");
         startButton.disableProperty().bind(controller.runningProperty());

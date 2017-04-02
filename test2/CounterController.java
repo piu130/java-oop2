@@ -15,7 +15,7 @@ public class CounterController implements Serializable {
     private transient BooleanProperty running;
     private CounterModel model;
 
-    public CounterController(CounterModel model) {
+    public CounterController(final CounterModel model) {
         this.model = model;
         running = new SimpleBooleanProperty(false);
         initTimer();
@@ -48,13 +48,13 @@ public class CounterController implements Serializable {
         model.reset();
     }
 
-    private void writeObject(ObjectOutputStream oos) throws IOException {
+    private void writeObject(final ObjectOutputStream oos) throws IOException {
         oos.defaultWriteObject();
         // write BooleanProperty (not serializable)
         oos.writeBoolean(isRunning());
     }
 
-    private void readObject(ObjectInputStream ois) throws IOException {
+    private void readObject(final ObjectInputStream ois) throws IOException {
         try {
             ois.defaultReadObject();
         } catch (ClassNotFoundException e) {

@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class LabelStatusView extends Stage {
 
-    public LabelStatusView(CounterController controller) {
+    public LabelStatusView(final CounterController controller) {
         String running = "Watches are running";
         String stopped = "Watches are not running";
         Label label = new Label(controller.isRunning() ? running : stopped);

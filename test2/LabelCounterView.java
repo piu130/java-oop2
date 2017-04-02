@@ -13,7 +13,7 @@ public class LabelCounterView extends Stage implements Observer {
     private CounterModel model;
     private Label label;
 
-    public LabelCounterView(CounterModel model) {
+    public LabelCounterView(final CounterModel model) {
         this.model = model;
         this.label = new Label();
 
@@ -27,7 +27,7 @@ public class LabelCounterView extends Stage implements Observer {
         this.show();
     }
 
-    public void update(Observable obs, Object args) {
+    public void update(final Observable obs, final Object args) {
         if(obs == model) setTime(model.getValue());
     }
 
