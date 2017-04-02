@@ -54,6 +54,7 @@ public class FontViewer extends Application {
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.setTitle("Font Viewer");
+        stage.setWidth(500);
         stage.show();
     }
 
