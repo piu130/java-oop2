@@ -81,11 +81,11 @@ public class FontViewer extends Application {
         Label label = new Label("Big Java");
 
         label.fontProperty().bind(Bindings.createObjectBinding(
-                this::updateLabelFont,
-                fontFamilyProperty,
-                fontWeightProperty,
-                fontPostureProperty,
-                fontSizeProperty
+            this::updateLabelFont,
+            fontFamilyProperty,
+            fontWeightProperty,
+            fontPostureProperty,
+            fontSizeProperty
         ));
 
         return new HBox(label, new ImageView(getClass().getResource("BigJava.jpg").toExternalForm()));
@@ -97,10 +97,10 @@ public class FontViewer extends Application {
      */
     private Node createControlBox() {
         VBox vBox = new VBox(
-                createFontSizeLabel(),
-                createFaceNameCombo(),
-                createStyleCheckBoxes(),
-                createSizeButtons()
+            createFontSizeLabel(),
+            createFaceNameCombo(),
+            createStyleCheckBoxes(),
+            createSizeButtons()
         );
         vBox.setSpacing(5.0);
         vBox.setAlignment(Pos.CENTER);
@@ -248,10 +248,10 @@ public class FontViewer extends Application {
      */
     private Font updateLabelFont() {
         return Font.font(
-                fontFamilyProperty.getValue(),
-                fontWeightProperty.getValue() ? FontWeight.BOLD : FontWeight.NORMAL,
-                fontPostureProperty.getValue() ? FontPosture.ITALIC : FontPosture.REGULAR,
-                fontSizeProperty.doubleValue()
+            fontFamilyProperty.getValue(),
+            fontWeightProperty.getValue() ? FontWeight.BOLD : FontWeight.NORMAL,
+            fontPostureProperty.getValue() ? FontPosture.ITALIC : FontPosture.REGULAR,
+            fontSizeProperty.doubleValue()
         );
     }
 
