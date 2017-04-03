@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 public class ButtonCounterView extends Stage {
 
     public ButtonCounterView(final CounterController controller) {
-
         Button startButton = new Button("Start");
         startButton.disableProperty().bind(controller.runningProperty());
         startButton.setOnAction(e -> controller.start());
@@ -22,9 +21,9 @@ public class ButtonCounterView extends Stage {
         resetButton.setOnAction(e -> controller.reset());
 
         Scene scene = new Scene(new HBox(
-                startButton,
-                stopButton,
-                resetButton
+            startButton,
+            stopButton,
+            resetButton
         ));
 
         this.setWidth(220.0);

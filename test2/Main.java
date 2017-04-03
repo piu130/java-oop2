@@ -7,10 +7,14 @@ import java.io.*;
 
 public class Main extends Application {
 
-    // File name to (de)serialize to and from
+    /**
+     * File name to (de)serialize to and from
+     */
     public static final String SERIALIZE_FILE = "stopWatch.ser";
 
-    // Controller to serialize
+    /**
+     * Controller to serialize
+     */
     private CounterController controller;
 
     @Override

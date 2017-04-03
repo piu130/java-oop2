@@ -45,10 +45,19 @@ public class CounterView extends Stage implements Observer {
         this.show();
     }
 
+    /**
+     * Observer for time
+     * @param obs Observable model
+     * @param args Args
+     */
     public void update(final Observable obs, Object args) {
         if(obs == model) setTime(model.getValue());
     }
 
+    /**
+     * Format time and display it in label
+     * @param seconds Seconds to format
+     */
     private void setTime(long seconds) {
         String time = String.format("%d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60));
         label.setText(time);

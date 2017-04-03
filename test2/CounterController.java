@@ -21,6 +21,9 @@ public class CounterController implements Serializable {
         initTimer();
     }
 
+    /**
+     * Init timer
+     */
     private void initTimer() {
         timer = new AnimationTimer() {
             private long currentTime;
@@ -34,16 +37,25 @@ public class CounterController implements Serializable {
         };
     }
 
+    /**
+     * Start timer
+     */
     public void start() {
         running.setValue(true);
         timer.start();
     }
 
+    /**
+     * Stop timer
+     */
     public void stop() {
         running.setValue(false);
         timer.stop();
     }
 
+    /**
+     * Reset timer
+     */
     public void reset() {
         model.reset();
     }
