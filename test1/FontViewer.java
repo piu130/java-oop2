@@ -10,6 +10,10 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCharacterCombination;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.stage.*;
@@ -217,10 +221,12 @@ public class FontViewer extends Application {
 
         CheckMenuItem italicCheckMenuItem = new CheckMenuItem("Italic");
         italicCheckMenuItem.setSelected(fontPostureProperty.getValue());
+        italicCheckMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.I, KeyCombination.CONTROL_DOWN));
         fontPostureProperty.bindBidirectional(italicCheckMenuItem.selectedProperty());
 
         CheckMenuItem boldCheckMenuItem = new CheckMenuItem("Bold");
         boldCheckMenuItem.setSelected(fontWeightProperty.getValue());
+        boldCheckMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.B, KeyCombination.CONTROL_DOWN));
         fontWeightProperty.bindBidirectional(boldCheckMenuItem.selectedProperty());
 
         Menu style = new Menu("Style", null, italicCheckMenuItem, boldCheckMenuItem);
