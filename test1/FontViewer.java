@@ -6,6 +6,7 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -26,18 +27,28 @@ public class FontViewer extends Application {
     private static final double SMALL_SIZE = 24.0;
     private static final double MEDIUM_SIZE = 36.0;
     private static final double LARGE_SIZE = 48.0;
+
+    /**
+     * Font sizes
+     */
     private static final Map<String, Double> sizes = new HashMap<String, Double>() {{
         put("Small", SMALL_SIZE);
         put("Medium", MEDIUM_SIZE);
         put("Large", LARGE_SIZE);
     }};
 
+    /**
+     * Font families
+     */
     private static final ArrayList<String> fontFamilies = new ArrayList<String>() {{
         add("Serif");
         add("SansSerif");
         add("Monospaced");
     }};
 
+    /**
+     * Font properties
+     */
     private StringProperty fontFamilyProperty = new SimpleStringProperty("Arial");
     private BooleanProperty fontWeightProperty = new SimpleBooleanProperty(true);
     private BooleanProperty fontPostureProperty = new SimpleBooleanProperty(false);
@@ -58,7 +69,11 @@ public class FontViewer extends Application {
         stage.show();
     }
 
-    private HBox createLabel() {
+    /**
+     * Creates the label with font bind to the font properties
+     * @return Label with image
+     */
+    private Node createLabel() {
         Label label = new Label("Big Java");
 
         label.fontProperty().bind(Bindings.createObjectBinding(
@@ -72,7 +87,11 @@ public class FontViewer extends Application {
         return new HBox(label, new ImageView(getClass().getResource("BigJava.jpg").toExternalForm()));
     }
 
-    private HBox createControlBox() {
+    /**
+     * Creates the control box
+     * @return Box to control font
+     */
+    private Node createControlBox() {
         VBox vBox = new VBox(
                 createFontSizeLabel(),
                 createFaceNameCombo(),
@@ -88,6 +107,10 @@ public class FontViewer extends Application {
         );
     }
 
+    /**
+     * Creates the label which displays the size
+     * @return Label with font size binding
+     */
     private Label createFontSizeLabel() {
         Label fontSizeLabel = new Label();
         fontSizeLabel.textProperty().bind(Bindings.concat("Font size: ", Bindings.format("%3.0f", fontSizeProperty)));
@@ -95,6 +118,10 @@ public class FontViewer extends Application {
         return fontSizeLabel;
     }
 
+    /**
+     * Creates the face name control element
+     * @return Combo box with font families
+     */
     private ComboBox<String> createFaceNameCombo() {
         ComboBox<String> faceNameCombo = new ComboBox<>(FXCollections.observableArrayList(fontFamilies));
         faceNameCombo.setEditable(true);
@@ -105,7 +132,11 @@ public class FontViewer extends Application {
         return faceNameCombo;
     }
 
-    private HBox createStyleCheckBoxes() {
+    /**
+     * Creates the checkboxes italic and bold
+     * @return Checkbox italic and bold
+     */
+    private Node createStyleCheckBoxes() {
         CheckBox italicCheckBox = new CheckBox("Italic");
         italicCheckBox.setSelected(fontPostureProperty.getValue());
         fontPostureProperty.bindBidirectional(italicCheckBox.selectedProperty());
@@ -120,7 +151,11 @@ public class FontViewer extends Application {
         return hBox;
     }
 
-    private HBox createSizeButtons() {
+    /**
+     * Creates the size radio buttons
+     * @return Radio buttons defined in this.sizes
+     */
+    private Node createSizeButtons() {
         ToggleGroup sizeButtonGroup = new ToggleGroup();
         HBox sizeBox = new HBox();
         sizes.forEach((text, size) -> {
@@ -148,6 +183,10 @@ public class FontViewer extends Application {
         return sizeBox;
     }
 
+    /**
+     * Creates the size slider
+     * @return Slider to change font size
+     */
     private Slider createSizeSlider() {
         Slider slider = new Slider(10, 70, fontSizeProperty.getValue());
         slider.setMajorTickUnit(10);
@@ -160,7 +199,10 @@ public class FontViewer extends Application {
         return slider;
     }
 
-
+    /**
+     * Creates the menu bar
+     * @return Menu bar
+     */
     private MenuBar createMenuBar() {
         Menu faceMenu = new Menu("Face");
         fontFamilies.forEach(fontFamily -> {
@@ -187,10 +229,17 @@ public class FontViewer extends Application {
         return new MenuBar(menu);
     }
 
+    /**
+     * Create bindings that doesn't belong to a control element
+     */
     private void createBindings() {
         fontFamilyProperty.addListener((observable, oldValue, newValue) -> updateLabelFont());
     }
 
+    /**
+     * Updates the font according to the properties
+     * @return Font calculated by properties
+     */
     private Font updateLabelFont() {
         return Font.font(
                 fontFamilyProperty.getValue(),
